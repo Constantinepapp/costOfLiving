@@ -156,7 +156,9 @@ export default function BasicTabs() {
         const newTab = {}
 
         for(let el of Object.values(data[tab])){
+            //@ts-ignore
             if(el.id != id){
+                //@ts-ignore
                 newTab[el.id] = el
             }
            
@@ -181,11 +183,11 @@ export default function BasicTabs() {
                     <Tab label="Leisures" {...a11yProps(2)} />
                     <Tab label="Subscriptions" {...a11yProps(2)} />
                     <Tab label="Vacation" {...a11yProps(2)} />
-                    <Tab label="Savings" {...a11yProps(2)} />
+                    
                 </Tabs>
             </Box>
             {Object.keys(data).map(tab => (
-
+                //@ts-ignore
                 tab != "id" && <TabPanel style={{ position: 'relative' }} value={value} index={tabsArr.indexOf(tab)}>
                     <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
                         <Button sx={{ backgroundColor: 'rgb(40,200,200)', marginLeft: '20px', position: 'absolute', right: '0', color: 'rgb(255,255,255)' }} onClick={e => handleAddNewRow(tab)}>Add</Button>

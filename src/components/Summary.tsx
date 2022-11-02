@@ -128,10 +128,13 @@ const Row = observer((props: { row: ReturnType<typeof createData> }) => {
         //console.log(toJS(obj))
         for (let el of Object.values(obj)) {
             const amount = amountByMonth(el)
+            //@ts-ignore
             if (!el.excluded) {
+                //@ts-ignore
                 if (el.type == "Expense") {
                     sum = sum - amount
                 }
+                //@ts-ignore
                 else if (el.type == "Income") {
                     sum = sum + amount
                 }
@@ -157,15 +160,18 @@ const Row = observer((props: { row: ReturnType<typeof createData> }) => {
     }
 
     const setAllExcluded = (category) => {
+        //@ts-ignore
         const getBool = Object.values(savedDataStore.coi[category]).filter(el => !el.excluded).length > 0
         const newCategory = {}
         for (let cat of Object.values(savedDataStore.coi[category])) {
+            //@ts-ignore
             newCategory[cat.id] = { ...cat, excluded: getBool }
         }
         savedDataStore.coi[category] = newCategory
     }
 
     const getExcludedAllValue = (category) => {
+        //@ts-ignore
         return Object.values(savedDataStore.coi[category]).filter(el => !el.excluded).length > 0
     }
 

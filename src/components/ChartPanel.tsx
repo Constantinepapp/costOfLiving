@@ -110,6 +110,7 @@ export function ChartPanel() {
             datasets: [
                 {
                     label: "By Category",
+                    //@ts-ignore
                     data: Object.values(balance).map(cat => cat.total),
                     pointRadius: 3,
                     fill: true,
@@ -184,6 +185,7 @@ export function ChartPanel() {
 function createData(
     id: string,
     category: string,
+    //@ts-ignore
     obj: Record<string, ExpenseIncome>,
 ) {
     return {
